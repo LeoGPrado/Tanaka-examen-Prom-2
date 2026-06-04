@@ -5,9 +5,18 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Scene Alexander.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/MainScene.unity
+    guid: 58589e649baf2884f9711d5fbd0d949a
+  - enabled: 1
+    path: Assets/Scenes/Scene Yan y Sebas.unity
+    guid: b8c975e7500008d41899e4a04676aee2
+  - enabled: 1
+    path: Assets/Scenes/CreditsScene.unity
+    guid: 685acd0414a5f2642b0056572f5044f1
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 1d6f4f4b11cf1f147bb1d9af3382a362, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
