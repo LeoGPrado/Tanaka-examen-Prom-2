@@ -539,8 +539,8 @@ MonoBehaviour:
   gameNameScene: Scene Yan y Sebas
   creditsNameScene: CreditsScene
   playButton: {fileID: 1143649400}
-  exitButton: {fileID: 1046350600}
-  creditsButton: {fileID: 71055891}
+  exitButton: {fileID: 71055891}
+  creditsButton: {fileID: 1046350600}
 --- !u!114 &789457026
 MonoBehaviour:
   m_ObjectHideFlags: 0

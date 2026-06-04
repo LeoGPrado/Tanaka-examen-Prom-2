@@ -61,10 +61,7 @@ public class Puzzle_Sequence : MonoBehaviour
         WaitForSeconds waitForSeconds = new(0.5f);
         disablePuzzle = true; 
 
-        if (currentSequenceStep < sequenceLights.Length)
-        {
-            sequenceLights[currentSequenceStep].color = lightErrorColor;
-        }
+        if (currentSequenceStep < sequenceLights.Length) sequenceLights[currentSequenceStep].color = lightErrorColor;
         yield return waitForSeconds;
 
         currentSequenceStep = 0;
