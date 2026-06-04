@@ -13,7 +13,7 @@ public class PuzzleSwitches : MonoBehaviour, IInteractable
     [SerializeField] Color lightColorOn = Color.green;
     [SerializeField] Color lightColorOff = Color.red;
 
-    [Header("Events")]
+    [Header("Evento")]
     [SerializeField] UnityEvent PuzzleSolved;
 
     public string PuzzlePrompt => puzzlePrompt;
@@ -29,7 +29,7 @@ public class PuzzleSwitches : MonoBehaviour, IInteractable
             fuseButtons[i].onValueChanged.AddListener((val) => OnToggleChanged(index, val));
         }
 
-        GenerateProceduralStart();
+        SetAllSwitchesOff();
     }
 
     public string GetTextInteract() => puzzlePrompt;
@@ -40,41 +40,11 @@ public class PuzzleSwitches : MonoBehaviour, IInteractable
         TogglePanel(true);
     }
 
-    private void GenerateProceduralStart()
+    private void SetAllSwitchesOff()
     {
-        float randomChance = Random.value;
-
-        if (randomChance < 0.5f)
+        for (int i = 0; i < fuseButtons.Length; i++)
         {
-            for (int i = 0; i < fuseButtons.Length; i++)
-            {
-                fuseButtons[i].SetIsOnWithoutNotify(true);
-            }
-
-            if (fuseButtons.Length >= 2)
-            {
-                int turnedOffCount = 0;
-                int max = 100;
-
-                while (turnedOffCount < 2 && max > 0)
-                {
-                    max--;
-                    int randomIndex = Random.Range(0, fuseButtons.Length);
-
-                    if (fuseButtons[randomIndex].isOn)
-                    {
-                        fuseButtons[randomIndex].SetIsOnWithoutNotify(false);
-                        turnedOffCount++;
-                    }
-                }
-            }
-        }
-        else
-        {
-            for (int i = 0; i < fuseButtons.Length; i++)
-            {
-                fuseButtons[i].SetIsOnWithoutNotify(false);
-            }
+            fuseButtons[i].SetIsOnWithoutNotify(false);
         }
 
         SyncAllVisuals();

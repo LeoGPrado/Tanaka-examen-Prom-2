@@ -5,14 +5,14 @@ using UnityEngine.EventSystems;
 [RequireComponent(typeof(RectTransform))]
 public class DraggableFusePuzzle : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    [Header("Configuración")]
+    [Header("Settings")]
     [SerializeField] private RectTransform correctTargetSlot;
     [SerializeField] private float requiredSnapDistance = 50f;
-    [SerializeField] private float dragScaleMultiplier = 1.15f;
+    [SerializeField] private float ScaleMultiplier = 1.15f;
 
     private RectTransform fuseRectTransform;
     private CanvasGroup fuseCanvasGroup;
-    private Canvas rootCanvasContainer;
+    private Canvas CanvasContainer;
 
     private Vector3 initialLocalPosition;
     private Transform initialParentTransform;
@@ -32,7 +32,7 @@ public class DraggableFusePuzzle : MonoBehaviour, IBeginDragHandler, IDragHandle
     {
         initialParentTransform = transform.parent;
         initialLocalPosition = transform.localPosition;
-        rootCanvasContainer = GetComponentInParent<Canvas>();
+        CanvasContainer = GetComponentInParent<Canvas>();
         mainPuzzleController = FindFirstObjectByType<FusePuzzleController>();
     }
 
@@ -42,8 +42,8 @@ public class DraggableFusePuzzle : MonoBehaviour, IBeginDragHandler, IDragHandle
 
         fuseCanvasGroup.blocksRaycasts = false;
         fuseCanvasGroup.alpha = 0.7f;
-        transform.localScale = initialScale * dragScaleMultiplier;
-        transform.SetParent(rootCanvasContainer.transform, true);
+        transform.localScale = initialScale * ScaleMultiplier;
+        transform.SetParent(CanvasContainer.transform, true);
         transform.SetAsLastSibling();
     }
 
@@ -51,10 +51,9 @@ public class DraggableFusePuzzle : MonoBehaviour, IBeginDragHandler, IDragHandle
     {
         if (isSnappedAndLocked) return;
 
-        if (rootCanvasContainer.renderMode != RenderMode.ScreenSpaceOverlay)
+        if (CanvasContainer.renderMode != RenderMode.ScreenSpaceOverlay)
         {
-            RectTransformUtility.ScreenPointToWorldPointInRectangle(
-                fuseRectTransform, eventData.position, rootCanvasContainer.worldCamera, out Vector3 worldPosition);
+            RectTransformUtility.ScreenPointToWorldPointInRectangle(fuseRectTransform, eventData.position, CanvasContainer.worldCamera, out Vector3 worldPosition);
             fuseRectTransform.position = worldPosition;
         }
         else

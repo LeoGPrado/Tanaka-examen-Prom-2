@@ -3,7 +3,7 @@ using UnityEngine.Events;
 
 public class FusePuzzleController : MonoBehaviour, IInteractable
 {
-    [Header("Configuración")]
+    [Header("Settings")]
     [SerializeField] private GameObject puzzlePanel;
     public string puzzlePrompt = "[E] Reparar Fusibles";
     [SerializeField] private int requiredFuses = 4;
@@ -32,10 +32,7 @@ public class FusePuzzleController : MonoBehaviour, IInteractable
 
     private void OpenPuzzle()
     {
-        puzzlePanel.SetActive(true);
-
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        puzzlePanel.SetActive(true); 
     }
 
     public void CheckPlacement()
