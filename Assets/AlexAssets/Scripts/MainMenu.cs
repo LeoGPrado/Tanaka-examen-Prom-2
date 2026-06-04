@@ -17,5 +17,11 @@ public class MainMenu : MonoBehaviour
     }
     void LoadGameScene() => SceneManager.LoadScene(gameNameScene);
     void LoadCreditsScene() => SceneManager.LoadScene(creditsNameScene);
-    void ExitGame() => Application.Quit();
+    void ExitGame()
+    {
+        Application.Quit();
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.ExitPlaymode();
+#endif
+    }
 }
