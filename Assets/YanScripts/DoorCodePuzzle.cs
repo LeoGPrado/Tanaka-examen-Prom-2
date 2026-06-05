@@ -3,7 +3,7 @@ using UnityEngine;
 public class DoorCodePuzzle : MonoBehaviour
 {
 
-
+    private RotateDoors rt;
     [SerializeField] private Transform pivot;
     [SerializeField] private GameObject codePanel;
 
@@ -19,7 +19,6 @@ public class DoorCodePuzzle : MonoBehaviour
 
 
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         locked = true;
@@ -28,12 +27,12 @@ public class DoorCodePuzzle : MonoBehaviour
         openingRotation = Quaternion.Euler(pivot.eulerAngles + new Vector3(0, openingAngle, 0));
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (opening)
         {
             pivot.rotation = Quaternion.Slerp(pivot.rotation, openingRotation, Time.deltaTime * openSpeed);
+            rt.Action();
         }
     }
 
@@ -52,6 +51,7 @@ public class DoorCodePuzzle : MonoBehaviour
     {
         locked = false;
         opening = true;
+
         codePanel.SetActive(false);
     }
 }
