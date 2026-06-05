@@ -50,6 +50,12 @@ public class RotateDoors : MonoBehaviour
 
     public void OnInteract()
     {
+        Action();
+    }
+
+
+    public void Action()
+    {
         if (opening || closing) return;
 
         if (open) closing = true;
