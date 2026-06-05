@@ -4,12 +4,16 @@ public class DoorCodePuzzle : MonoBehaviour
 {
 
 
-    [SerializeField] private Transform door;
-    [SerializeField] private RotateDoors rd;
-    [SerializeField] private GameObject codePad;
+    [SerializeField] private Transform pivot;
+    [SerializeField] private GameObject codePanel;
+
+    [SerializeField] private float openSpeed = 2f;
+    [SerializeField] private float openingAngle = 90f; 
 
     [SerializeField] private bool locked;
     [SerializeField] private bool opening;
+    private Quaternion closingRotation;
+    private Quaternion openingRotation;
     
 
 
@@ -18,7 +22,10 @@ public class DoorCodePuzzle : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        codePad.SetActive(false);
+        locked = true;
+        codePanel.SetActive(false);
+        closingRotation = pivot.rotation;
+        openingRotation = Quaternion.Euler(pivot.eulerAngles + new Vector3(0, openingAngle, 0));
     }
 
     // Update is called once per frame
@@ -26,25 +33,25 @@ public class DoorCodePuzzle : MonoBehaviour
     {
         if (opening)
         {
-            rd.OnInteract();
+            pivot.rotation = Quaternion.Slerp(pivot.rotation, openingRotation, Time.deltaTime * openSpeed);
         }
     }
 
     public void OnInteract()
     {
-        OpenCodePad();
+        OpenCodePanel();
     }
 
-    private void OpenCodePad()
+    public void OpenCodePanel()
     {
         if (!locked) return;
-        codePad.SetActive(true);
+        codePanel.SetActive(true);
     }
 
     public void UnlockDoorWithCode()
     {
         locked = false;
         opening = true;
-        codePad.SetActive(false);
+        codePanel.SetActive(false);
     }
 }

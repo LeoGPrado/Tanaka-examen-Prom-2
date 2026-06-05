@@ -58,6 +58,9 @@ public class RotateDoors : MonoBehaviour
     {
         if (opening || closing) return;
 
+        opening = false;
+        closing = false;
+
         if (open) closing = true;
         else opening = true;
     }
