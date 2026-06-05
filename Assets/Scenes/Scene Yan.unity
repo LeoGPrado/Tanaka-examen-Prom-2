@@ -5117,6 +5117,38 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &928277509
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 928277510}
+  m_Layer: 0
+  m_Name: ContenedorPuerta (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &928277510
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 928277509}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -9.53533, y: 1.76314, z: 18.07326}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2081385180}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &940308228
 Mesh:
   m_ObjectHideFlags: 0
@@ -5919,7 +5951,10 @@ GameObject:
   - component: {fileID: 1032586807}
   - component: {fileID: 1032586806}
   - component: {fileID: 1032586805}
-  m_Layer: 0
+  - component: {fileID: 1032586811}
+  - component: {fileID: 1032586810}
+  - component: {fileID: 1032586809}
+  m_Layer: 3
   m_Name: PuertaLlave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5945,8 +5980,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.7762704, y: 1, z: 1}
+  m_Center: {x: -0.3881342, y: 0, z: 0}
 --- !u!23 &1032586806
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6012,13 +6047,75 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1032586804}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.433, y: 1.5081, z: 17.898}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.16, y: 0.05596006, z: 0.43274134}
   m_LocalScale: {x: 0.20465, y: 1.9661, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 2081385180}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1032586809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1032586804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c97bdf828b52d24088256fac9bffd9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RotateDoors
+  pivot: {fileID: 2081385180}
+  speedRotation: 90
+  openedAngle: -90
+  open: 0
+  opening: 0
+  closing: 0
+--- !u!114 &1032586810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1032586804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c5dfdef36a23c84eb6ca45f461718d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InteractableObject
+  onInteract:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1032586811}
+        m_TargetAssemblyTypeName: DoorKeyPuzzle, Assembly-CSharp
+        m_MethodName: TryOpeningDoor
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  interactText: Presiona E
+--- !u!114 &1032586811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1032586804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 512a42584368a9243b8fc2c4acc9224a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DoorKeyPuzzle
+  rt: {fileID: 1032586809}
+  locked: 0
+  opening: 0
+  hasKey: 0
 --- !u!43 &1076249773
 Mesh:
   m_ObjectHideFlags: 0
@@ -11390,12 +11487,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1621440102}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -14.013386, y: 26.502419, z: -0.6111145}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalPosition: {x: -12.374249, y: 0.7979996, z: 19.259}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2740989156841672696}
+  m_Children:
+  - {fileID: 2740989156841672696}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &1668313849
 Mesh:
@@ -13261,6 +13359,7 @@ GameObject:
   - component: {fileID: 1889385297}
   - component: {fileID: 1889385293}
   - component: {fileID: 1889385296}
+  - component: {fileID: 1889385300}
   m_Layer: 3
   m_Name: "PuertaC\xF3digo"
   m_TagString: Untagged
@@ -13280,10 +13379,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8033bebf33582ad48a4920352bbd8f7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DoorCodePuzzle
+  rt: {fileID: 1889385300}
   pivot: {fileID: 601566919}
   codePanel: {fileID: 671763154}
-  openSpeed: 2
-  openingAngle: 90
   locked: 0
   opening: 0
 --- !u!4 &1889385295
@@ -13318,7 +13416,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1889385293}
         m_TargetAssemblyTypeName: DoorCodePuzzle, Assembly-CSharp
-        m_MethodName: OnInteract
+        m_MethodName: OpenCodePanel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -13407,6 +13505,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1889385292}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1889385300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1889385292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c97bdf828b52d24088256fac9bffd9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RotateDoors
+  pivot: {fileID: 601566919}
+  speedRotation: 90
+  openedAngle: -90
+  open: 0
+  opening: 0
+  closing: 0
 --- !u!43 &1931795571
 Mesh:
   m_ObjectHideFlags: 0
@@ -15073,6 +15189,38 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b8f86df95b9d6c4fb32c2c9d2b7ba69, type: 3}
+--- !u!1 &2081385179
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2081385180}
+  m_Layer: 0
+  m_Name: Pivote
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2081385180
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2081385179}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.311, z: -0.608}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1032586808}
+  m_Father: {fileID: 928277510}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &2108405376
 Mesh:
   m_ObjectHideFlags: 0
@@ -15987,6 +16135,8 @@ GameObject:
   - component: {fileID: 1151097000545061912}
   - component: {fileID: 4542755367211688730}
   - component: {fileID: 4542755367211688731}
+  - component: {fileID: 4542755367211688732}
+  - component: {fileID: 4542755367211688733}
   m_Layer: 0
   m_Name: Cajon
   m_TagString: Untagged
@@ -16071,13 +16221,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7466346460979803657}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: -12.514383, y: 0.53297544, z: 19.25289}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.14013386, y: -0.2650242, z: 0.006111145}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1621440103}
-  m_Father: {fileID: 0}
+  m_Children: []
+  m_Father: {fileID: 1621440103}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2984200755051238864
 GameObject:
@@ -16289,6 +16438,49 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 56.914627, y: 23.811172, z: 64.09891}
   m_Center: {x: 0.00012207031, y: 12.127125, z: 0}
+--- !u!114 &4542755367211688732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 956476820922196660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08435b974bbfadb43becccf315b4dc06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DrawerOpener
+  speedOpen: 2
+  distanceOpening: -0.5
+  openedDifPosition: -19.31675
+--- !u!114 &4542755367211688733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 956476820922196660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c5dfdef36a23c84eb6ca45f461718d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InteractableObject
+  onInteract:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4542755367211688732}
+        m_TargetAssemblyTypeName: DrawerOpener, Assembly-CSharp
+        m_MethodName: OnInteract
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  interactText: Presiona E
 --- !u!23 &4609344927483218151
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -16631,6 +16823,8 @@ GameObject:
   - component: {fileID: 418137509687178297}
   - component: {fileID: 5509660934010493720}
   - component: {fileID: 7215438946666862685}
+  - component: {fileID: 7215438946666862687}
+  - component: {fileID: 7215438946666862686}
   m_Layer: 3
   m_Name: "Caj\xF3n3"
   m_TagString: Untagged
@@ -16659,6 +16853,49 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 56.703354, y: 26.248007, z: 61.006973}
   m_Center: {x: 0, y: 13.260373, z: 0}
+--- !u!114 &7215438946666862686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7215438946666862684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c5dfdef36a23c84eb6ca45f461718d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InteractableObject
+  onInteract:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7215438946666862687}
+        m_TargetAssemblyTypeName: DrawerOpener, Assembly-CSharp
+        m_MethodName: OnInteract
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  interactText: Presiona E
+--- !u!114 &7215438946666862687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7215438946666862684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08435b974bbfadb43becccf315b4dc06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DrawerOpener
+  speedOpen: 2
+  distanceOpening: -0.5
+  openedDifPosition: -19.31675
 --- !u!1 &7232072945248804243
 GameObject:
   m_ObjectHideFlags: 0
@@ -16689,6 +16926,8 @@ GameObject:
   - component: {fileID: 9138731615461270018}
   - component: {fileID: 3932855997170172282}
   - component: {fileID: 9138731615461270019}
+  - component: {fileID: 9138731615461270021}
+  - component: {fileID: 9138731615461270020}
   m_Layer: 3
   m_Name: "Caj\xF3n2"
   m_TagString: Untagged
@@ -16845,6 +17084,8 @@ GameObject:
   - component: {fileID: 3875268688820149963}
   - component: {fileID: 5444813803486465044}
   - component: {fileID: 8287510444152988723}
+  - component: {fileID: 8287510444152988724}
+  - component: {fileID: 8287510444152988725}
   m_Layer: 3
   m_Name: "Caj\xF3n1"
   m_TagString: Untagged
@@ -16871,8 +17112,51 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 56.703354, y: 24.286293, z: 64.734566}
-  m_Center: {x: 0, y: 11.770443, z: 0}
+  m_Size: {x: 56.703354, y: 24.286293, z: 69.002304}
+  m_Center: {x: 0, y: 11.770443, z: 2.1338673}
+--- !u!114 &8287510444152988724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8287510444152988722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08435b974bbfadb43becccf315b4dc06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DrawerOpener
+  speedOpen: 2
+  distanceOpening: -0.5
+  openedDifPosition: -19.31675
+--- !u!114 &8287510444152988725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8287510444152988722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c5dfdef36a23c84eb6ca45f461718d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InteractableObject
+  onInteract:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8287510444152988724}
+        m_TargetAssemblyTypeName: DrawerOpener, Assembly-CSharp
+        m_MethodName: OnInteract
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  interactText: Presiona E
 --- !u!1 &8617562344565541809
 GameObject:
   m_ObjectHideFlags: 0
@@ -17034,6 +17318,49 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 56.703354, y: 25.094826, z: 63.142647}
   m_Center: {x: 0, y: 12.515415, z: 0}
+--- !u!114 &9138731615461270020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7246672841847772169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c5dfdef36a23c84eb6ca45f461718d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InteractableObject
+  onInteract:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 9138731615461270021}
+        m_TargetAssemblyTypeName: DrawerOpener, Assembly-CSharp
+        m_MethodName: OnInteract
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  interactText: Presiona E
+--- !u!114 &9138731615461270021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7246672841847772169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08435b974bbfadb43becccf315b4dc06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DrawerOpener
+  speedOpen: 2
+  distanceOpening: -0.5
+  openedDifPosition: -19.31675
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -17046,11 +17373,11 @@ SceneRoots:
   - {fileID: 1597689810}
   - {fileID: 1184842688}
   - {fileID: 35649825}
-  - {fileID: 1032586808}
   - {fileID: 8997184799540826379}
-  - {fileID: 2740989156841672696}
+  - {fileID: 1621440103}
   - {fileID: 5245381256022907422}
   - {fileID: 443717363}
   - {fileID: 1616121075}
+  - {fileID: 928277510}
   - {fileID: 285428530}
   - {fileID: 1992933722}
