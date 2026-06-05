@@ -2,5 +2,6 @@ using UnityEngine;
 
 public interface IInteractable
 {
-    void Interact(Vector3 interactorPosition);
+    string GetTextInteract();
+    void Interact(Transform interactorTransform);
 }

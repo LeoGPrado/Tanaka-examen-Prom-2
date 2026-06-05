@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class PuzzleSwitches : MonoBehaviour, IInteractable
+public class PuzzleSwitches : MonoBehaviour
 {
     [Header("Settings")]
     public string puzzlePrompt = "[E] Interactuar";

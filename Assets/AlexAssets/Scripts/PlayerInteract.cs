@@ -33,7 +33,7 @@ public class PlayerInteract : MonoBehaviour
     {
         if (currentInteractable != null && Input.GetKeyDown(KeyCode.E))
         {
-            currentInteractable.Interact(interactPoint.position);
+            currentInteractable.Interact(transform);
         }
     }
     void SetCurrentInteractable(IInteractable interactable)

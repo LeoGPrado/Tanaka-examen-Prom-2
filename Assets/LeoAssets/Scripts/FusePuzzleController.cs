@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class FusePuzzleController : MonoBehaviour, IInteractable
+public class FusePuzzleController : MonoBehaviour
 {
     [Header("Settings")]
     [SerializeField] private GameObject puzzlePanel;
