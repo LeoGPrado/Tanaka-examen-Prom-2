@@ -5,7 +5,7 @@ public class RotateDoors : MonoBehaviour
 
     [SerializeField] private Transform pivot;
     [SerializeField] private float speedRotation = 90f;
-    [SerializeField] private float openedAngle = 90f;
+    [SerializeField] private float openedAngle = -90f;
     [SerializeField] private bool open = false;
     [SerializeField] private bool opening = false;
     [SerializeField] private bool closing = false;
@@ -18,7 +18,7 @@ public class RotateDoors : MonoBehaviour
     void Start()
     {
         closingRotation = pivot.localRotation;
-        openingRotation = closingRotation * Quaternion.Euler(0f, openedAngle, 0f);
+        openingRotation = Quaternion.Euler(0f, openedAngle, 0f);
     }
 
     // Update is called once per frame
@@ -26,10 +26,12 @@ public class RotateDoors : MonoBehaviour
     {
         if (opening)
         {
+            print("esta rotando...");
             pivot.localRotation = Quaternion.RotateTowards(pivot.localRotation, openingRotation, speedRotation * Time.deltaTime);
 
             if (Quaternion.Angle(pivot.localRotation, openingRotation) < 0.1f)
             {
+                print("termino de rotar");
                 pivot.localRotation = openingRotation;
                 opening = false;
                 open = true;
