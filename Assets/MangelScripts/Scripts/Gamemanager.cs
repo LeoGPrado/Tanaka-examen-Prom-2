@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameManager : BaseManager<GameManager>
+public class GameManager : BaseManager<GameManager> 
 {
     [Header("Victoria")]
     [SerializeField] int notasParaVictoria = 2;

@@ -15,5 +15,5 @@ MonoBehaviour:
   id: 1
   itemName: Repuesto Fusible
   description: "Nunca esta dem\xE1s tener un repuesto..."
-  sprite: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   itemType: 0
